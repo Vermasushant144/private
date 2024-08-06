@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Activation After 6:00 PM</title>
+    <style>
+        .card {
+            display: none;
+            width: 300px;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #f8f8f8;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="specialButton" disabled>Click Me After 6:00 PM</button>
+    <div class="card" id="specialCard">
+        <h2>Special Message</h2>
+        <p>Suun Suun!!
+
+            its wried but mene try kiya tha ke deliery wale bhahiya ko bol do note ke ley but kismat khrab hai na mere 
+            fir yaad aya 😂😂😂😂 me toh developer ho na kuch bhi kr skta hai 
+            i created this for you 😂😂
+
+            yrr dekh me tujko accha feel karane ke ley nhi kiya but mene bola tha na i always avaible for you tere wrost face me 
+            aur ha akele mt khana yr sabko dedena mote . 
+
+            YOU ARE THE BEST GIRL IN THE WORLD BRO JO TUNE KIYA HAI BHU KESE KA SAPNA HOTA HAI LOG JA BHI NHI PATE YHA TAK 
+
+            chl smile kr ab 
+        </p>
+        <a  style="font-size: 30px;" href="https://drive.google.com/file/d/14MNeEJAXL0MYmo_VynGEr4TxMaJU8UnH/view?usp=sharing">SHI SE DEKHNA DARNA NA OKAY</a>
+    </div>
+
+    <script>
+        function checkTime() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const button = document.getElementById('specialButton');
+            if (hours >= 18) {
+                button.disabled = false;
+                button.onclick = function() {
+                    document.getElementById('specialCard').style.display = 'block';
+                };
+            } else {
+                button.disabled = true;
+                setTimeout(checkTime, 60000); // Check again in 1 minute
+            }
+        }
+
+        checkTime(); // Initial check
+    </script>
+</body>
+</html>
